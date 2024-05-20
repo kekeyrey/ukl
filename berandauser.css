@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia;
+  }
+  
+  .navigasi {
+    background-color: #41B06E;
+    width: 300%;
+    height: 110px;
+    position: fixed;
+  }
+  
+  .logo {
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 60px;
+  }  
+  
+  .logo img {
+    float: left;
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+
+  .menu {
+    margin-left: 1050px;
+    padding-top: 55px;
+    font-size: 20px;
+  }
+
+  .login{
+    background-color: black;
+  }
+  
+  .menu ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 50px;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .menu ul li a:hover {
+    color: #627254;
+    font-style: italic;
+    font-size: 20px;
+  }
+  
+  .banner {
+    background-color: #FDFAF6;
+    height: 900px;
+    text-align: center;
+    color: white;
+  }
+  
+  .banner img {
+
+    height: 200px;
+    margin-top: 200px;
+  }
+  
+  .banner h1 {
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+  
+  .banner p {
+    font-size: 20px;
+    color: #151965;
+  }
+  .banner button {
+    background-color: #41B06E;
+    margin-top: 60px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 50px;
+    border: none;
+    font-size: 20px;
+  }
+  
+  .banner button:hover {
+    background-color: #50D890;
+    border: 1px solid #000;
+    color: #331D2C;
+  }
+  

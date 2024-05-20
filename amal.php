@@ -47,7 +47,7 @@
             <p>Amal ini ditujukan untuk memberikan dukungan kepada anak-anak yatim piatu, yang kehilangan satu atau kedua orang tua mereka</p>
           </div>
      <div class="servicess">
-        <a href="donatur.html" class="learn-isi"><button>YUK AMAL</button></a>
+        <a href="donatur.php" class="learn-isi"><button>YUK AMAL</button></a>
     </div>
 </body>
 </html>
