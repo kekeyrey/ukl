@@ -64,16 +64,16 @@
     </div>
 <?php
 include 'koneksi.php';
-$result = mysqli_query($mysqli, "SELECT * FROM user_pendonasi") or die (mysqli_error());
+$result = mysqli_query($mysqli, "SELECT * FROM user") or die (mysqli_error());
 while($data = mysqli_fetch_array($result)){
     ?>
     <tr>
-        <td><?php echo $data['id']; ?></td>
+        <td><?php echo $data['iduser']; ?></td>
         <td><?php echo $data['username']; ?></td>
         <td><?php echo $data['email']; ?></td>
-        <td><a href='editdatauser.php?id=<?php echo $data['id'];?>'>Edit</a></td>
+        <td><a href='editdatauser.php?iduser=<?php echo $data['iduser'];?>'>Edit</a></td>
         <?php  ?>
-        <td><a href='deleteuser.php?id=<?php echo $data['id'];?>'>Hapus</a></td>
+        <td><a href='deleteuser.php?iduser=<?php echo $data['iduser'];?>'>Hapus</a></td>
         <?php }?>
     </tr>
 

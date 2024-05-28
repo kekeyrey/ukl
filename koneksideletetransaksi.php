@@ -3,11 +3,11 @@
 include_once("koneksi.php");
 
 //get id from URL to delete that user
-$iduser = $_GET['iduser'];
+$idtransaksi = $_GET['idtransaksi'];
 
 //deleted user row from table based on given is
-$result = mysqli_query($mysqli, "DELETE FROM user WHERE iduser = '$iduser'");
+$result = mysqli_query($mysqli, "DELETE FROM transaksi  WHERE idtransaksi = '$idtransaksi'");
 
 //after delete redirect to home, so that latest user list will be displayed
-header("location:tabeluser2.php");
+header("location:tabeltransaksi.php");
 ?>

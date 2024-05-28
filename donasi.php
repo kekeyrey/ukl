@@ -70,15 +70,14 @@
                 <input type="text" id="tujuan_donasi" name="tujuan_donasi" required>
             </div>
             <div class="form-group">
-                <label for="deskripsi_donasi">Deskripsi Donasi:</label>
+                <label for="deskripsi">Deskripsi Donasi:</label>
                 <input type="text" id="deskripsi" name="deskripsi" required>
             </div>
             <div class="form-group">
 				<label>Foto :</label>
-				<input type="file" name="foto" required="required">
-				<p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+				<input type="text" name="foto" required="required">
 			</div>	
-            <button type="submit">Kirim</button>
+            <button type="submit" name="save">Kirim</button>
         </form>
     </div>
 </body>

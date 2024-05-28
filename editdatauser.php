@@ -38,7 +38,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr><td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
+                <tr><td><input type="hidden" name="id" value=<?php echo $_GET['iduser'];?>></td>
                     <td><input type="submit" name="simpan" value="simpan"></td>
                 </tr>
             </table>

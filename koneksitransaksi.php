@@ -1,22 +1,36 @@
 <?php
-include("koneksi.php");
+session_start();
+include 'koneksi.php'; // file koneksi ke database
 
-// Memeriksa apakah formulir telah disubmit
-if (isset($_POST['save'])) {
-    $notelepon = $mysqli->real_escape_string($_POST['notelepon']);
-    $jumlah_donasi = $mysqli->real_escape_string($_POST['jumlah_donasi']);
-    $no_rekening = $mysqli->real_escape_string($_POST['no_rekening']);
-    $tujuan_donasi = $mysqli->real_escape_string($_POST['tujuan_donasi']);
+// Enable error reporting for debugging
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-    // Menyimpan data ke database
-    $sql = "INSERT INTO transaksi (notelepon, jumlah_donasi, no_rekening, tujuan_donasi) 
-            VALUES ('$notelepon', '$jumlah_donasi', '$no_rekening', '$tujuan_donasi')";
+if (isset($_POST['Submit']) && isset($_SESSION['iduser'])) {
+    // Mengamankan nilai sesi
+    $iduser = $_SESSION['iduser'];
+    $iddonasi= $_POST['iddonasi'];
+    $notelepon = $_POST['notelepon'];
+    $jumlah_donasi = $_POST['jumlah_donasi'];
+    $no_rekening = $_POST['no_rekening'];
 
-    if ($mysqli->query($sql) === TRUE) {
-        echo "Transaksi berhasil disimpan.";
+    // Debugging: Print variable values
+    echo "iduser: $iduser<br>";
+    echo "iddonasi: $iddonasi<br>";
+    echo "notelepon: $notelepon<br>";
+    echo "jumlah_donasi: $jumlah_donasi<br>";
+    echo "no_rekening: $no_rekening<br>";
+
+    // Insert a new record
+    $sql = "INSERT INTO transaksi (iduser, iddonasi, notelepon, jumlah_donasi, no_rekening) 
+            VALUES ('$iduser', '$iddonasi', '$notelepon', '$jumlah_donasi', '$no_rekening')";
+    
+    if ($mysqli->query($sql)) {
+        echo "Data berhasil disimpan.";
     } else {
-        echo "Error: " . $sql . "<br>" . $mysqli->error;
+        echo "Gagal menyimpan data: " . htmlspecialchars($mysqli->error);
     }
+} else {
+    echo "Gagal menyimpan data: Informasi tidak lengkap.";
 }
 
 $mysqli->close();

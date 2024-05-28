@@ -77,19 +77,26 @@
                 <input type="text" id="no_rekening" name="no_rekening" required>
             </div>
             <div class="form-group">
-                <label for="tujuan_donasi">Tujuan Donasi</label>
-                <input type="text" id="no_rekening" name="tujuan_donasi" required>
-            </div>
-            <?php
-                    // Ambil data tujuan donasi dari tabel donasi
-                    include("koneksi.php");
-                    $result = $mysqli->query("SELECT id, tujuan_donasi FROM donasi");
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='".$row['id']."'>".$row['tujuan_donasi']."</option>";
+                <label for="tujuan_donasi">Tujuan Donasi:</label>
+                <select id="tujuan_donasi" name="iddonasi" required>
+                    <?php
+                    include 'koneksi.php';
+                    // Jalankan query untuk mengambil semua data dari tabel donasi
+                    $sql = "SELECT iddonasi, tujuan_donasi FROM donasi";
+                    $result = $mysqli->query($sql);
+
+                    // Loop melalui setiap baris hasil query
+                    while ($data = mysqli_fetch_array($result)) {
+                        // Cetak elemen option untuk setiap baris
+                        echo '<option value="' . $data['iddonasi'] . '">' . $data['tujuan_donasi'] . '</option>';
                     }
+
+                    // Tutup koneksi database
                     $mysqli->close();
                     ?>
-            <button type="submit" name="save">Kirim</button>
+                </select>
+            </div>
+            <button type="submit" name="Submit">Kirim</button>
         </form>
     </div>
 </body>

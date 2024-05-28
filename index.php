@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>beranda admin</title>
-    <link rel="stylesheet" href="berandaadmin2.css" />
+    <title>beranda user</title>
+    <link rel="stylesheet" href="berandauser.css" />
   </head>
   <body>
     <!--Navigasi-->
@@ -15,12 +15,10 @@
       <div class="menu">
         <ul>
           <li><a></a></li>
-          <li><a href="berandaadmin2.php">Home</a></li>
-          <li><a href="donasi.php">Donasi</a></li>
-          <li><a href="tabeluser2.php">Tabel User</a></li>
-          <li><a href="tabeldonasi.php">Tabel Donasi</a></li>
-          <li><a href="tabeltransaksi.php">Tabel Transaksi</a></li>
-          <li><a href="login2.php">Login</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="profil2.php">Profile</a></li>
+          <li><a href="register2.php">Daftar</a></li>
+          <li><a href="login.php">Login</a></li>
         </ul>
       </div>
     </div>
@@ -32,6 +30,7 @@
       <h1>SELAMAT DATANG</h1>
       <p>Selamat datang di platform kebaikan kami! Setiap kontribusi Anda membawa harapan baru </p>
       <p>Bersama, mari wujudkan perubahan positif. Terima kasih atas dukungan Anda </p>
+      <a href="halamanamal.php"><button>SELENGKAPNYA</button></a>
     </div>
     <!-- Footer -->
 <footer style="background-color: #333; color: #fff; padding: 20px 0; text-align: center;">
@@ -61,5 +60,6 @@
         <p style="margin: 0;">&copy; 2024 Landing Page Aksi Kebaikan. All Rights Reserved.</p>
     </div>
 </footer>
+
   </body>
 </html>

@@ -34,14 +34,14 @@
      }
      .box{
         width:400px;
-        height:600px;
+        height:500px;
         background-color:#A1DD70;
         text-align: center;
         padding: 20px 20px;
         margin:60px 20px 20px 190px;
         border-radius:5px;
         float:left;
-        font-size:20px;
+        font-size:15px;
      }
      .box:hover{
         background-color: #ACE1AF;
@@ -64,7 +64,7 @@
 </head>
 <body>
 <div class="servicess">
-        <a href="berandauser.php" class="learn-isi"><button>Back</button></a>
+        <a href="index.php" class="learn-isi"><button>Back</button></a>
     </div>
     <div class=judul>
         <h1>DONASI</h1>
@@ -81,7 +81,7 @@
                         <h3><?php echo $data['tujuan_donasi']; ?></h3>
                         <p><?php echo $data['deskripsi']; ?></p>
                         <div class="button"></div>
-                        <a href="transaksi.php" class="btn">Donasi Sekarang</a>
+                        <a href="transaksi.php?iddonasi=<?php echo $data['iddonasi'];?>" class="btn">Donasi Sekarang</a>
                     </div>
                 <?php } ?>
         </div>

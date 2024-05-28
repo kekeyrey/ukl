@@ -9,9 +9,9 @@
      color:black;
 }
 .tabel th{
-    background-color: #2D9596;    
+    background-color:;    
     height:40px;
-    padding:10px;
+    padding:20px;
 }
 .tabel{
     border-collapse: collapse;
@@ -57,25 +57,36 @@
     <table border="1">   
     <tr>
         <th>Id Transaksi</th>
+        <th>Username</th>
+        <th>Email</th>
         <th>No.Telepon</th>
         <th>Jumlah Donasi</th>
         <th>No.Rekening</th>
+        <th>Tujuan Donasi</th>
         <th colspan="2">Action</th>            
     </tr>
     </div>
-<?php
-include 'koneksi.php';
-$result = mysqli_query($mysqli, "SELECT * FROM transaksi") or die (mysqli_error());
-while($data = mysqli_fetch_array($result)){
-    ?>
+    <?php
+        include 'koneksi.php';
+        $query = "SELECT transaksi.idtransaksi, user.username, user.email, transaksi.notelepon, transaksi.jumlah_donasi,transaksi.no_rekening, donasi.tujuan_donasi
+        FROM transaksi
+        INNER JOIN user ON transaksi.iduser = user.iduser
+        JOIN donasi ON donasi.iddonasi = transaksi.iddonasi;";
+
+        $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
+        while ($data = mysqli_fetch_array($result)) {
+        ?>
     <tr>
         <td><?php echo $data['idtransaksi']; ?></td>
+        <td><?php echo $data['username']; ?></td>  
+        <td><?php echo $data['email']; ?></td>
         <td><?php echo $data['notelepon']; ?></td>
         <td><?php echo $data['jumlah_donasi']; ?></td>
         <td><?php echo $data['no_rekening']; ?></td>
+        <td><?php echo $data['tujuan_donasi']; ?></td>
         <td><a href='editdatatransaksi.php?idtransaksi=<?php echo $data['idtransaksi'];?>'>Edit</a></td>
         <?php  ?>
-        <td><a href='delete_user.php?id=<?php echo $data['idtransaksi'];?>'>Hapus</a></td>
+        <td><a href='deletetransaksi.php?idtransaksi=<?php echo $data['idtransaksi'];?>'>Hapus</a></td>
         <?php }?>
     </tr>
 

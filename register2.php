@@ -33,7 +33,7 @@
     .register-box input[type="email"],
     .register-box select,
     .register-box button[type="submit"] {
-        width: calc(100% - 10px);
+        width: calc(100% - 20px);
         padding: 10px;
         margin: 8px 0;
         border: 1px solid #ccc;
@@ -65,30 +65,35 @@
             <option value="user">User</option>
             <option value="admin">Admin</option>
         </select>
-        <button type="submit" name="register">Register</button>
+        <button type="submit" name="register2">Register</button>
         <?php
-            // check if form submitted, insert form data into users table.
-            if(isset($_POST['register'])){
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $role = "user";
-            //echo($judul);
-            // include database connetion file
+        if (isset($_POST['register2'])) {
             include_once("koneksi.php");
 
-            //insert user data into table
-            $result = mysqli_query($mysqli, "INSERT INTO user_pendonasi (username,email,password,role) 
-            VALUES ('$username','$email','$password','$role')");
+            $username = mysqli_real_escape_string($mysqli, $_POST['username']);
+            $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+            $password = mysqli_real_escape_string($mysqli, $_POST['password']);
+            $role = mysqli_real_escape_string($mysqli, $_POST['role']);
 
-            //show message when user added 
-            // echo "Data added succesfully. <a href= 'index.php,>view data</a>
-            header("location:login2.php");
-            } ?>
+            // Validasi input
+            if (empty($username) || empty($email) || empty($password) || empty($role)) {
+                echo "Semua field harus diisi.";
+            } else {
+                // Insert user data into table
+                $query = "INSERT INTO user (username, email, password, role) VALUES ('$username', '$email', '$password', '$role')";
+
+                if (mysqli_query($mysqli, $query)) {
+                    // Redirect to login page after successful registration
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    echo "Error: " . mysqli_error($mysqli);
+                }
+            }
+        }
+        ?>
     </form>
 </div>
 
 </body>
 </html>
-
-       
